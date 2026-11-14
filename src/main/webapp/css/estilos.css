@@ -254,7 +254,8 @@ button[type="submit"]:hover,
     background: rgba(180, 35, 24, 0.25);
 }
 
-.contenido {
+.contenido,
+.contenido-principal {
     flex: 1;
     min-width: 0;
     padding: 38px clamp(22px, 4vw, 56px);
@@ -468,7 +469,8 @@ textarea:focus {
         padding-top: 12px;
     }
 
-    .contenido {
+    .contenido,
+.contenido-principal {
         padding: 26px 18px;
     }
 
