@@ -33,19 +33,19 @@
                     Dashboard
                 </a>
 
-                <a href="#" class="menu-item">
+                <a href="<%= request.getContextPath() %>/productos.jsp" class="menu-item">
                     Productos
                 </a>
 
-                <a href="#" class="menu-item">
+                <a href="<%= request.getContextPath() %>/movimientos.jsp" class="menu-item">
                     Movimientos
                 </a>
 
-                <a href="#" class="menu-item">
+                <a href="<%= request.getContextPath() %>/vencimientos.jsp" class="menu-item">
                     Vencimientos
                 </a>
 
-                <a href="#" class="menu-item">
+                <a href="<%= request.getContextPath() %>/usuarios.jsp" class="menu-item">
                     Usuarios
                 </a>
 
@@ -55,7 +55,7 @@
 
                 <a href="<%= request.getContextPath() %>/LogoutServlet"
                    class="menu-item cerrar-sesion">
-                    Cerrar sesi髇
+                    Cerrar sesi贸n
                 </a>
 
             </div>
@@ -69,7 +69,7 @@
 
                 <div>
                     <h1>Dashboard</h1>
-                    <p>Resumen de la gesti髇 de productos perecibles</p>
+                    <p>Resumen de la gesti贸n de productos perecibles</p>
                 </div>
 
             </header>
@@ -122,7 +122,7 @@
                     </div>
 
                     <div>
-                        <p>Pr髕imos a vencer</p>
+                        <p>Pr贸ximos a vencer</p>
 
                         <h2>
                             <%= dashboard != null
@@ -157,10 +157,10 @@
 
             <section class="panel-vacio">
 
-                <h2>Gesti髇 de productos perecibles</h2>
+                <h2>Gesti贸n de productos perecibles</h2>
 
                 <p>
-                    Desde este Dashboard podr醩 consultar el estado
+                    Desde este Dashboard podr谩s consultar el estado
                     general de los productos registrados.
                 </p>
 
@@ -170,5 +170,6 @@
 
     </div>
 
+    <script src="<%= request.getContextPath() %>/js/script.js" defer></script>
 </body>
 </html>
