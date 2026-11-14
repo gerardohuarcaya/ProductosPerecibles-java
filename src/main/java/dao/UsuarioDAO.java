@@ -19,54 +19,41 @@ public class UsuarioDAO {
                 + "WHERE (usuario = ? OR correo = ?) "
                 + "AND estado = 1";
 
-        try (
-                Connection conexion = Conexion.obtenerConexion(); PreparedStatement sentencia = conexion.prepareStatement(sql)) {
+        try (Connection conexion = Conexion.obtenerConexion()) {
 
-            sentencia.setString(1, identificador);
-            sentencia.setString(2, identificador);
+            // Evita NullPointerException si la conexión a MySQL falla.
+            if (conexion == null) {
+                System.out.println("No se pudo validar el usuario porque no hay conexión con MySQL.");
+                return null;
+            }
 
-            ResultSet resultado = sentencia.executeQuery();
+            try (PreparedStatement sentencia = conexion.prepareStatement(sql)) {
 
-            if (resultado.next()) {
+                sentencia.setString(1, identificador);
+                sentencia.setString(2, identificador);
 
-                String hash = resultado.getString("contraseña");
+                try (ResultSet resultado = sentencia.executeQuery()) {
 
-                if (BCrypt.checkpw(contraseña, hash)) {
+                    if (resultado.next()) {
+                        String hash = resultado.getString("contraseña");
 
-                    usuario = new Usuario();
-
-                    usuario.setIdUsuario(
-                            resultado.getInt("id_usuario")
-                    );
-
-                    usuario.setNombre(
-                            resultado.getString("nombre")
-                    );
-
-                    usuario.setUsuario(
-                            resultado.getString("usuario")
-                    );
-
-                    usuario.setCorreo(
-                            resultado.getString("correo")
-                    );
-
-                    usuario.setContraseña(
-                            resultado.getString("contraseña")
-                    );
-
-                    usuario.setEstado(
-                            resultado.getInt("estado")
-                    );
+                        if (hash != null && BCrypt.checkpw(contraseña, hash)) {
+                            usuario = new Usuario();
+                            usuario.setIdUsuario(resultado.getInt("id_usuario"));
+                            usuario.setNombre(resultado.getString("nombre"));
+                            usuario.setUsuario(resultado.getString("usuario"));
+                            usuario.setCorreo(resultado.getString("correo"));
+                            usuario.setContraseña(hash);
+                            usuario.setEstado(resultado.getInt("estado"));
+                        }
+                    }
                 }
             }
 
         } catch (SQLException e) {
-
-            System.out.println(
-                    "Error al validar usuario: "
-                    + e.getMessage()
-            );
+            System.out.println("Error al validar usuario: " + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.out.println("El hash de la contraseña almacenado no tiene un formato válido.");
         }
 
         return usuario;
