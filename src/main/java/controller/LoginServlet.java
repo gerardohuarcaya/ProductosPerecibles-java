@@ -12,64 +12,45 @@ import java.io.IOException;
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
 public class LoginServlet extends HttpServlet {
+
     private UsuarioDAO usuarioDAO;
-    
+
     @Override
     public void init() {
         usuarioDAO = new UsuarioDAO();
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
+        request.setCharacterEncoding("UTF-8");
+
         String identificador = request.getParameter("identificador");
         String contraseña = request.getParameter("contraseña");
-        
+
         if (identificador == null || identificador.trim().isEmpty()
-                || contraseña == null || contraseña.trim().isEmpty()){
-            response.sendRedirect(
-                    request.getContextPath() 
-                    + "/login.jsp?error=campos"
-            );
-            
+                || contraseña == null || contraseña.trim().isEmpty()) {
+            response.sendRedirect(request.getContextPath() + "/login.jsp?error=campos");
             return;
-            
         }
-        
-        Usuario usuario = usuarioDAO.validarUsuario(
-                identificador, 
-                contraseña
-        );
-        
+
+        Usuario usuario = usuarioDAO.validarUsuario(identificador.trim(), contraseña);
+
         if (usuario != null) {
             HttpSession sesion = request.getSession();
-            
             sesion.setAttribute("usuario", usuario);
-            
-            response.sendRedirect(
-                    request.getContextPath() 
-                    + "/index.jsp"
-            );
-            
+
+            // El DashboardServlet comprueba la sesión y carga los datos del panel.
+            response.sendRedirect(request.getContextPath() + "/DashboardServlet");
         } else {
-            response.sendRedirect(
-                    request.getContextPath() 
-                    + "/login.jsp?error=credenciales"
-            );
+            response.sendRedirect(request.getContextPath() + "/login.jsp?error=credenciales");
         }
     }
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        response.sendRedirect(
-                request.getContextPath()
-                + "/login.jsp"
-        );      
+        response.sendRedirect(request.getContextPath() + "/login.jsp");
     }
 }
-    
-    
-   
