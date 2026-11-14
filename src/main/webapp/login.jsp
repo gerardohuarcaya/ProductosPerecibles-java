@@ -87,5 +87,6 @@
 
     </main>
 
+    <script src="${pageContext.request.contextPath}/js/script.js" defer></script>
 </body>
 </html>
