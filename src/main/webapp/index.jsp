@@ -53,7 +53,7 @@
 
             <div class="menu-inferior">
 
-                <a href="<%= request.getContextPath() %>/LogoutServlet"
+                <a href="<%= request.getContextPath() %>/logout"
                    class="menu-item cerrar-sesion">
                     Cerrar sesión
                 </a>
