@@ -31,20 +31,52 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Menú adaptable para pantallas pequeñas.
+    // Menú adaptable: contraer/expandir en escritorio y abrir/cerrar en móvil.
     const botonMenu = document.querySelector(".menu-toggle");
     const menuPrincipal = document.getElementById("menu-principal");
-    if (botonMenu && menuPrincipal) {
-        botonMenu.addEventListener("click", function () {
-            const abierto = menuPrincipal.classList.toggle("menu-visible");
+    const contenedorPrincipal = botonMenu ? botonMenu.closest(".contenedor") : null;
+    const esMovil = window.matchMedia("(max-width: 760px)");
+
+    function actualizarBotonMenu() {
+        const icono = botonMenu ? botonMenu.querySelector("i") : null;
+        if (!botonMenu || !menuPrincipal) return;
+
+        if (esMovil.matches) {
+            const abierto = menuPrincipal.classList.contains("menu-visible");
             botonMenu.setAttribute("aria-expanded", String(abierto));
             botonMenu.setAttribute("aria-label", abierto ? "Ocultar menú" : "Mostrar menú");
-            const icono = botonMenu.querySelector("i");
             if (icono) {
                 icono.classList.toggle("bi-list", !abierto);
                 icono.classList.toggle("bi-x-lg", abierto);
             }
+        } else {
+            menuPrincipal.classList.remove("menu-visible");
+            const expandido = !contenedorPrincipal.classList.contains("menu-colapsado");
+            botonMenu.setAttribute("aria-expanded", String(expandido));
+            botonMenu.setAttribute("aria-label", expandido ? "Contraer menú" : "Expandir menú");
+            if (icono) {
+                icono.classList.toggle("bi-list", expandido);
+                icono.classList.toggle("bi-layout-sidebar-inset", !expandido);
+            }
+        }
+    }
+
+    if (botonMenu && menuPrincipal && contenedorPrincipal) {
+        botonMenu.addEventListener("click", function () {
+            if (esMovil.matches) {
+                menuPrincipal.classList.toggle("menu-visible");
+            } else {
+                contenedorPrincipal.classList.toggle("menu-colapsado");
+            }
+            actualizarBotonMenu();
         });
+
+        esMovil.addEventListener("change", function () {
+            menuPrincipal.classList.remove("menu-visible");
+            contenedorPrincipal.classList.remove("menu-colapsado");
+            actualizarBotonMenu();
+        });
+        actualizarBotonMenu();
     }
 
     // Mostrar u ocultar las contraseñas sin modificar el nombre del campo.
