@@ -11,7 +11,7 @@
     <main class="login-container">
         <section class="login-box">
             <div class="login-marca">
-                <img src="${pageContext.request.contextPath}/img/marca-oceano.svg" alt="Logotipo Productos Perecibles">
+                <img class="img-fluid" src="${pageContext.request.contextPath}/img/marca-oceano.svg" alt="Logotipo Productos Perecibles">
             </div>
             <h1>Productos Perecibles</h1>
             <h2>Iniciar sesión</h2>
