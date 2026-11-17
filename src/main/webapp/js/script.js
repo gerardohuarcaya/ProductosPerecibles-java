@@ -3,7 +3,7 @@
  * Interacciones comunes para las páginas JSP.
  */
 document.addEventListener("DOMContentLoaded", function () {
-    // Navegación: resaltar la sección correspondiente a la URL actual.
+    // Ajustar las imágenes del encabezado cuando el navegador termina de cargarlas.\n    document.querySelectorAll(".encabezado-imagen").forEach(function (imagen) {\n        function marcarImagenCargada() { imagen.classList.add("imagen-cargada"); }\n        if (imagen.complete && imagen.naturalWidth > 0) {\n            marcarImagenCargada();\n        } else {\n            imagen.addEventListener("load", marcarImagenCargada, { once: true });\n            imagen.addEventListener("error", function () {\n                imagen.hidden = true;\n                const encabezado = imagen.closest(".encabezado");\n                if (encabezado) encabezado.classList.add("encabezado-sin-imagen");\n            }, { once: true });\n        }\n    });\n\n    // Navegación: resaltar la sección correspondiente a la URL actual.
     const rutaActual = window.location.pathname;
     document.querySelectorAll(".menu-lateral a[href]").forEach(function (enlace) {
         const urlEnlace = new URL(enlace.href, window.location.origin);
