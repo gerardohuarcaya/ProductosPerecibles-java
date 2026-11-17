@@ -6,12 +6,11 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
-import jakarta.servlet.annotation.WebFilter;
 
 /**
  * Fuerza UTF-8 para las solicitudes y respuestas de la aplicación.
+ * El filtro se registra en WEB-INF/web.xml.
  */
-@WebFilter("/*")
 public class CodificacionUTF8Filter implements Filter {
 
     @Override
