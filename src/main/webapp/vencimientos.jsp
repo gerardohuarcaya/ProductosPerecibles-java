@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Vencimientos</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilos.css">
+    <%@ include file="/WEB-INF/vistas/recursos.jsp" %>
 </head>
 <body>
     <div class="contenedor">
