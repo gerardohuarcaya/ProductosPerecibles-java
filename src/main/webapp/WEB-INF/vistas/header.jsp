@@ -25,6 +25,7 @@
 
     <div class="encabezado-contenido">
         <div class="encabezado-marca">
+            <img class="encabezado-logo img-fluid" src="${pageContext.request.contextPath}/img/marca-oceano.svg" alt="Logotipo Productos Perecibles" width="58" height="58">
             <div class="encabezado-texto">
                 <span class="encabezado-etiqueta">
                     <i class="bi bi-grid-1x2-fill" aria-hidden="true"></i>
