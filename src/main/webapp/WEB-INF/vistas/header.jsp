@@ -1,10 +1,15 @@
 <header class="encabezado" aria-label="Encabezado de Productos Perecibles">
     <img
         class="encabezado-imagen img-fluid w-100 h-100"
-        src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1800&q=80"
+        src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1800&q=85"
+        srcset="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=900&q=80 900w,
+                https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1400&q=85 1400w,
+                https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=2000&q=85 2000w"
+        sizes="100vw"
         alt=""
         aria-hidden="true"
-        fetchpriority="high">
+        fetchpriority="high"
+        decoding="async">
     <div class="encabezado-capa" aria-hidden="true"></div>
 
     <div class="encabezado-contenido">
