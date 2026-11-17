@@ -22,17 +22,18 @@
             %>
             <%@ include file="/WEB-INF/vistas/header.jsp" %>
 
-            <form action="${pageContext.request.contextPath}/UsuarioServlet" method="get">
-                <label for="buscar">Buscar usuario</label>
+            <section class="card border-0 shadow-sm p-3 p-md-4"><form class="row g-3 align-items-end mb-3" action="${pageContext.request.contextPath}/UsuarioServlet" method="get">
+                <label class="form-label col-12 col-md-auto mb-0" for="buscar">Buscar usuario</label>
                 <input
+                    class="form-control col"
                     id="buscar"
                     name="buscar"
                     value="<%= buscar == null ? "" : buscar %>"
                     placeholder="Nombre o correo">
-                <button type="submit">Buscar</button>
+                <button class="btn btn-primary col-12 col-md-auto" type="submit"><i class="bi bi-search me-1"></i>Buscar</button>
             </form>
 
-            <table>
+            <div class="table-responsive tabla-contenedor"><table class="table table-hover align-middle mb-0">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -65,7 +66,7 @@
                         }
                     %>
                 </tbody>
-            </table>
+            </table></div></section>
 
             <%@ include file="/WEB-INF/vistas/footer.jsp" %>
         </main>
