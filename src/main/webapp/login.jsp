@@ -10,7 +10,10 @@
 <body>
     <main class="login-container">
         <section class="login-box">
-            <div class="login-marca">\n                <img src="${pageContext.request.contextPath}/img/marca-oceano.svg" alt="Logotipo Productos Perecibles">\n            </div>\n            <h1>Productos Perecibles</h1>
+            <div class="login-marca">
+                <img src="${pageContext.request.contextPath}/img/marca-oceano.svg" alt="Logotipo Productos Perecibles">
+            </div>
+            <h1>Productos Perecibles</h1>
             <h2>Iniciar sesión</h2>
             <p>Ingresa tus datos para continuar</p>
 
