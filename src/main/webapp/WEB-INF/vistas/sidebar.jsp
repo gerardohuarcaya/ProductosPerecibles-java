@@ -1,10 +1,5 @@
 <aside class="menu-lateral">
-    <div class="logo-marca">
-        <img class="img-fluid" src="${pageContext.request.contextPath}/img/marca-oceano.svg" alt="Logotipo Productos Perecibles">
-        <div class="logo-texto">
-            <strong>Productos Perecibles</strong>
-            <span>Gestión inteligente de inventario</span>
-        </div>
+    <div class="menu-cabecera">
         <button class="menu-toggle" type="button" aria-label="Mostrar menú" aria-expanded="false" aria-controls="menu-principal">
             <i class="bi bi-list" aria-hidden="true"></i>
         </button>
