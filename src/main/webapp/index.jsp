@@ -16,10 +16,8 @@
         <%@ include file="/WEB-INF/vistas/sidebar.jsp" %>
 
         <main class="contenido-principal">
-            <header class="encabezado">
-                <h1>Dashboard</h1>
-                <p>Resumen de la gestión de productos perecibles</p>
-            </header>
+            <% request.setAttribute("tituloPagina", "Dashboard"); %>
+            <%@ include file="/WEB-INF/vistas/header.jsp" %>
 
             <section class="tarjetas">
                 <div class="tarjeta">
@@ -47,9 +45,8 @@
                 <h2>Gestión de productos perecibles</h2>
                 <p>Consulta y administra el inventario desde el menú.</p>
             </section>
+        <%@ include file="/WEB-INF/vistas/footer.jsp" %>
         </main>
     </div>
-
-    <script src="${pageContext.request.contextPath}/js/script.js" defer></script>
 </body>
 </html>
