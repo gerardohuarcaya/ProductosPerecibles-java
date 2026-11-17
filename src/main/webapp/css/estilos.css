@@ -519,3 +519,72 @@ textarea:focus {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* =========================================================
+   IDENTIDAD VISUAL OCEÁNICA
+   Capa de diseño: conserva las clases y funciones existentes.
+   ========================================================= */
+:root {
+    --color-primario: #087e9b;
+    --color-primario-oscuro: #075985;
+    --color-primario-claro: #ddf4f5;
+    --color-fondo: #f4f7fa;
+    --color-superficie: #ffffff;
+    --color-texto: #183247;
+    --color-texto-suave: #647789;
+    --color-borde: #dce7ed;
+    --sombra: 0 12px 32px rgba(16, 44, 70, .08);
+}
+body { background: var(--color-fondo); color: var(--color-texto); }
+.menu-lateral {
+    background: linear-gradient(180deg, #102c46 0%, #123e5a 58%, #075985 100%);
+    color: #e8f7fb; box-shadow: 8px 0 28px rgba(16, 44, 70, .10);
+}
+.logo-marca { display:flex; align-items:center; gap:12px; padding:0 8px 26px; }
+.logo-marca img { width:48px; height:48px; flex:0 0 48px; }
+.logo-marca strong { display:block; color:#fff; font-size:16px; line-height:1.2; }
+.logo-marca span { display:block; margin-top:4px; color:#b9dce8; font-size:11px; }
+.menu-lateral nav a { color:#c8e0eb; }
+.menu-lateral nav a:hover, .menu-lateral nav a.activo { color:#fff; background:rgba(125,211,232,.18); }
+.menu-lateral .cerrar-sesion { color:#ffd8d5; }
+.menu-lateral .cerrar-sesion:hover { background:rgba(248,113,113,.18); }
+.encabezado {
+    position:relative; overflow:hidden; min-height:168px; padding:32px 36px;
+    margin:0 0 30px; color:#fff;
+    background:#075985 url("../img/banner-oceano.svg") center 48% / cover no-repeat;
+    border:1px solid rgba(8,126,155,.12); border-radius:20px;
+    box-shadow:0 14px 34px rgba(7,89,133,.16);
+}
+.encabezado::before { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(8,35,59,.82),rgba(8,75,105,.34)); }
+.encabezado-texto { position:relative; z-index:1; }
+.encabezado h1 { color:#fff; font-size:clamp(26px,3vw,34px); }
+.encabezado p, .encabezado-texto p { color:#d9f3f7; }
+.tarjeta { border-color:#e0ebf0; }
+.tarjeta-icono { color:#087e9b; background:#ddf4f5; }
+.tarjeta h2 { color:#102c46; }
+.panel-vacio, .panel, .contenido-panel { border-color:#e0eaf0; box-shadow:var(--sombra); }
+th { color:#31566d; background:#edf5f8; }
+tbody tr:hover { background:#f1f9fb; }
+.campo input:focus, .campo select:focus, .campo textarea:focus,
+input:focus, select:focus, textarea:focus { border-color:#087e9b; box-shadow:0 0 0 3px rgba(8,126,155,.12); }
+.login-container {
+    background:linear-gradient(rgba(8,35,59,.42),rgba(8,35,59,.55)),
+      url("../img/banner-oceano.svg") center / cover fixed, #eaf4f7;
+}
+.login-box { border-color:#dceaf0; }
+.login-marca { display:flex; justify-content:center; margin-bottom:18px; }
+.login-marca img { width:72px; height:72px; }
+.login-box h1 { color:#102c46; margin-bottom:22px; }
+.login-box button, button[type="submit"], .boton, .btn { background:#087e9b; border-color:#087e9b; }
+.login-box button:hover, button[type="submit"]:hover, .boton:hover, .btn:hover { background:#075985; border-color:#075985; }
+.pie-pagina { margin-top:34px; padding:26px 24px; color:#d5e9f0; text-align:left; background:#102c46; border-radius:16px 16px 0 0; }
+.pie-contenido { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:18px; max-width:1200px; margin:0 auto; }
+.pie-marca { display:flex; align-items:center; gap:12px; }
+.pie-marca img { width:42px; height:42px; }
+.pie-marca strong { display:block; color:#fff; }
+.pie-marca span, .pie-derechos { color:#b9d3df; font-size:12px; }
+@media (max-width:760px) {
+    .encabezado { min-height:142px; padding:25px 22px; }
+    .pie-contenido { align-items:flex-start; flex-direction:column; }
+}
