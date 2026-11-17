@@ -1,6 +1,6 @@
 <aside class="menu-lateral">
     <div class="logo-marca">
-        <img src="${pageContext.request.contextPath}/img/marca-oceano.svg" alt="Logotipo Productos Perecibles">
+        <img class="img-fluid" src="${pageContext.request.contextPath}/img/marca-oceano.svg" alt="Logotipo Productos Perecibles">
         <div class="logo-texto">
             <strong>Productos Perecibles</strong>
             <span>Gestión inteligente de inventario</span>
