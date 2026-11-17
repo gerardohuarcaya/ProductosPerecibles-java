@@ -23,8 +23,8 @@
             %>
             <%@ include file="/WEB-INF/vistas/header.jsp" %>
 
-            <section class="seccion-movimientos">
-                <h2>Registrar entrada o salida</h2>
+            <section class="seccion-movimientos card border-0 shadow-sm p-3 p-md-4">
+                <h2 class="h5 mb-3">Registrar entrada o salida</h2>
 
                 <%
                     if ("ok".equals(request.getParameter("resultado"))) {
@@ -38,9 +38,10 @@
                     }
                 %>
 
-                <form action="${pageContext.request.contextPath}/MovimientoServlet" method="post">
-                    <label for="id_producto">Producto</label>
-                    <select id="id_producto" name="id_producto" required>
+                <form class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3 align-items-end mb-4" action="${pageContext.request.contextPath}/MovimientoServlet" method="post">
+                    <label class="form-label" for="id_producto">Producto</label>
+                    <select class="form-select"
+                        id="id_producto" name="id_producto" required>
                         <option value="">Selecciona</option>
                         <%
                             if (productos != null) {
@@ -55,34 +56,38 @@
                         %>
                     </select>
 
-                    <label for="tipo">Tipo</label>
-                    <select id="tipo" name="tipo" required>
+                    <label class="form-label" for="tipo">Tipo</label>
+                    <select class="form-select"
+                        id="tipo" name="tipo" required>
                         <option value="ENTRADA">Entrada</option>
                         <option value="SALIDA">Salida</option>
                     </select>
 
-                    <label for="cantidad">Cantidad</label>
-                    <input type="number" id="cantidad" name="cantidad" min="1" required>
+                    <label class="form-label" for="cantidad">Cantidad</label>
+                    <input type="number" class="form-control"
+                        id="cantidad" name="cantidad" min="1" required>
 
-                    <label for="observacion">Observación</label>
-                    <input type="text" id="observacion" name="observacion" maxlength="255">
+                    <label class="form-label" for="observacion">Observación</label>
+                    <input type="text" class="form-control"
+                        id="observacion" name="observacion" maxlength="255">
 
-                    <button type="submit">Registrar movimiento</button>
+                    <div class="col-12"><button class="btn btn-primary" type="submit"><i class="bi bi-arrow-left-right me-1"></i>Registrar movimiento</button></div>
                 </form>
 
-                <h2>Historial</h2>
+                <h2 class="h5 mt-4 mb-3">Historial</h2>
 
-                <form action="${pageContext.request.contextPath}/MovimientoServlet" method="get">
-                    <label for="filtro">Filtrar</label>
-                    <select id="filtro" name="tipo">
+                <form class="row g-2 align-items-end mb-3" action="${pageContext.request.contextPath}/MovimientoServlet" method="get">
+                    <label class="form-label" for="filtro">Filtrar</label>
+                    <select class="form-select"
+                        id="filtro" name="tipo">
                         <option value="">Todos</option>
                         <option value="ENTRADA" <%= "ENTRADA".equals(tipo) ? "selected" : "" %>>Entrada</option>
                         <option value="SALIDA" <%= "SALIDA".equals(tipo) ? "selected" : "" %>>Salida</option>
                     </select>
-                    <button type="submit">Filtrar</button>
+                    <button class="btn btn-outline-primary col-12 col-md-auto" type="submit"><i class="bi bi-funnel me-1"></i>Filtrar</button>
                 </form>
 
-                <table>
+                <div class="table-responsive tabla-contenedor"><table class="table table-hover align-middle mb-0">
                     <thead>
                         <tr>
                             <th>Código</th>
@@ -119,7 +124,7 @@
                             }
                         %>
                     </tbody>
-                </table>
+                </table></div>
             </section>
 
             <%@ include file="/WEB-INF/vistas/footer.jsp" %>
