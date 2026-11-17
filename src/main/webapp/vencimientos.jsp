@@ -24,8 +24,8 @@
             %>
             <%@ include file="/WEB-INF/vistas/header.jsp" %>
 
-            <h2>Próximos a vencer: <%= tp == null ? 0 : tp %></h2>
-            <table>
+            <section class="card border-0 shadow-sm p-3 p-md-4 mb-4"><h2 class="h5 mb-3">Próximos a vencer: <%= tp == null ? 0 : tp %></h2>
+            <div class="table-responsive tabla-contenedor"><table class="table table-hover align-middle mb-0">
                 <thead>
                     <tr>
                         <th>Código</th>
@@ -60,10 +60,10 @@
                         }
                     %>
                 </tbody>
-            </table>
+            </table></div>
 
-            <h2>Productos vencidos: <%= tv == null ? 0 : tv %></h2>
-            <table>
+            </section><section class="card border-0 shadow-sm p-3 p-md-4 mb-4"><h2 class="h5 mb-3">Productos vencidos: <%= tv == null ? 0 : tv %></h2>
+            <div class="table-responsive tabla-contenedor"><table class="table table-hover align-middle mb-0">
                 <thead>
                     <tr>
                         <th>Código</th>
@@ -96,7 +96,9 @@
                         }
                     %>
                 </tbody>
-            </table>
+            </table></div>
+
+            </section>
 
             <%@ include file="/WEB-INF/vistas/footer.jsp" %>
         </main>
