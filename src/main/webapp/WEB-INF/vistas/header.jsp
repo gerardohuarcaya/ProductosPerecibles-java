@@ -1,6 +1,6 @@
 <header class="encabezado" aria-label="Encabezado de Productos Perecibles">
     <img
-        class="encabezado-imagen"
+        class="encabezado-imagen img-fluid w-100 h-100"
         src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1800&q=80"
         alt=""
         aria-hidden="true"
