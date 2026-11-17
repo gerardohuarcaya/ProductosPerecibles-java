@@ -1,3 +1,4 @@
+
 package dao;
 
 import model.Usuario;
@@ -14,16 +15,15 @@ public class UsuarioDAO {
         Usuario usuario = null;
 
         String sql = "SELECT id_usuario, nombre, usuario, correo, "
-                + "contraseña, estado "
+                + "contraseña, estado, rol "
                 + "FROM usuario "
                 + "WHERE (usuario = ? OR correo = ?) "
                 + "AND estado = 1";
 
         try (Connection conexion = Conexion.obtenerConexion()) {
 
-            // Evita NullPointerException si la conexión a MySQL falla.
             if (conexion == null) {
-                System.out.println("No se pudo validar el usuario porque no hay conexión con MySQL.");
+                System.out.println("No hay conexión con MySQL.");
                 return null;
             }
 
@@ -35,16 +35,20 @@ public class UsuarioDAO {
                 try (ResultSet resultado = sentencia.executeQuery()) {
 
                     if (resultado.next()) {
+
                         String hash = resultado.getString("contraseña");
 
                         if (hash != null && BCrypt.checkpw(contraseña, hash)) {
+
                             usuario = new Usuario();
+
                             usuario.setIdUsuario(resultado.getInt("id_usuario"));
                             usuario.setNombre(resultado.getString("nombre"));
                             usuario.setUsuario(resultado.getString("usuario"));
                             usuario.setCorreo(resultado.getString("correo"));
                             usuario.setContraseña(hash);
                             usuario.setEstado(resultado.getInt("estado"));
+                            usuario.setRol(resultado.getString("rol"));
                         }
                     }
                 }
@@ -53,7 +57,7 @@ public class UsuarioDAO {
         } catch (SQLException e) {
             System.out.println("Error al validar usuario: " + e.getMessage());
         } catch (IllegalArgumentException e) {
-            System.out.println("El hash de la contraseña almacenado no tiene un formato válido.");
+            System.out.println("El hash de contraseña no es válido.");
         }
 
         return usuario;
