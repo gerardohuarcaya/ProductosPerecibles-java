@@ -39,8 +39,8 @@
                 %>
 
                 <form class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3 align-items-end mb-4" action="${pageContext.request.contextPath}/MovimientoServlet" method="post">
-                    <label class="form-label" for="id_producto">Producto</label>
-                    <select class="form-select"
+                    <label class="form-label col-12 col-md-3 mb-0" for="id_producto">Producto</label>
+                    <select class="form-select col-12 col-md-9"
                         id="id_producto" name="id_producto" required>
                         <option value="">Selecciona</option>
                         <%
@@ -56,19 +56,19 @@
                         %>
                     </select>
 
-                    <label class="form-label" for="tipo">Tipo</label>
-                    <select class="form-select"
+                    <label class="form-label col-12 col-md-3 mb-0" for="tipo">Tipo</label>
+                    <select class="form-select col-12 col-md-9"
                         id="tipo" name="tipo" required>
                         <option value="ENTRADA">Entrada</option>
                         <option value="SALIDA">Salida</option>
                     </select>
 
-                    <label class="form-label" for="cantidad">Cantidad</label>
-                    <input type="number" class="form-control"
+                    <label class="form-label col-12 col-md-3 mb-0" for="cantidad">Cantidad</label>
+                    <input type="number" class="form-control col-12 col-md-9"
                         id="cantidad" name="cantidad" min="1" required>
 
-                    <label class="form-label" for="observacion">Observación</label>
-                    <input type="text" class="form-control"
+                    <label class="form-label col-12 col-md-3 mb-0" for="observacion">Observación</label>
+                    <input type="text" class="form-control col-12 col-md-9"
                         id="observacion" name="observacion" maxlength="255">
 
                     <div class="col-12"><button class="btn btn-primary" type="submit"><i class="bi bi-arrow-left-right me-1"></i>Registrar movimiento</button></div>
