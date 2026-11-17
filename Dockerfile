@@ -14,6 +14,6 @@ RUN rm -rf /usr/local/tomcat/webapps/*
 
 COPY --from=build /app/target/ProductosPerecibles-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ProductosPerecibles.war
 
-EXPOSE 8080
+EXPOSE 10000
 
-CMD ["sh", "-c", "sed -i 's/port=\"8080\"/port=\"'\"${PORT:-8080}\"'\"/' /usr/local/tomcat/conf/server.xml && catalina.sh run"]
+CMD ["sh", "-c", "sed -i 's/port=\"8080\"/port=\"'\"${PORT:-10000}\"'\"/' /usr/local/tomcat/conf/server.xml && catalina.sh run"]
