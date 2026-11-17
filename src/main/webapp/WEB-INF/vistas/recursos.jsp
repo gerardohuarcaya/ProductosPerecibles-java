@@ -8,4 +8,4 @@
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     rel="stylesheet"
     crossorigin="anonymous">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilos.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilos.css?v=20261117-2">
