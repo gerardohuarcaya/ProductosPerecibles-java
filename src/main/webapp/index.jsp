@@ -21,23 +21,31 @@
 
             <section class="tarjetas">
                 <div class="tarjeta">
-                    <p>Total de productos</p>
+                    <span class="tarjeta-icono"><i class="bi bi-boxes" aria-hidden="true"></i></span>
+                    <div><p>Total de productos</p>
                     <h2><%= dashboard == null ? 0 : dashboard.getTotalProductos() %></h2>
+                    </div>
                 </div>
 
                 <div class="tarjeta">
-                    <p>Productos disponibles</p>
+                    <span class="tarjeta-icono"><i class="bi bi-check-circle" aria-hidden="true"></i></span>
+                    <div><p>Productos disponibles</p>
                     <h2><%= dashboard == null ? 0 : dashboard.getProductosDisponibles() %></h2>
+                    </div>
                 </div>
 
                 <div class="tarjeta">
-                    <p>Próximos a vencer</p>
+                    <span class="tarjeta-icono"><i class="bi bi-clock-history" aria-hidden="true"></i></span>
+                    <div><p>Próximos a vencer</p>
                     <h2><%= dashboard == null ? 0 : dashboard.getProductosProximosVencer() %></h2>
+                    </div>
                 </div>
 
                 <div class="tarjeta">
-                    <p>Productos vencidos</p>
+                    <span class="tarjeta-icono"><i class="bi bi-exclamation-triangle" aria-hidden="true"></i></span>
+                    <div><p>Productos vencidos</p>
                     <h2><%= dashboard == null ? 0 : dashboard.getProductosVencidos() %></h2>
+                    </div>
                 </div>
             </section>
 
