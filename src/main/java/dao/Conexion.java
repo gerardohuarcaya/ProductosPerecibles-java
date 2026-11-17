@@ -18,9 +18,10 @@ public class Conexion {
             throw new IllegalStateException("La URL de conexión DB_URL está vacía.");
         }
 
-        // Si DB_URL ya define la codificación, se respeta su configuración.
-        if (url.toLowerCase().contains("characterencoding=")) {
-            return url;
+        // Fuerza UTF-8 incluso si DB_URL ya tenía otra codificación configurada.
+        String urlUTF8 = url.replaceAll("(?i)([?&]characterEncoding=)[^&]*", "$1UTF-8");
+        if (!urlUTF8.equals(url)) {
+            return urlUTF8;
         }
 
         String separador = url.contains("?") ? "&" : "?";
