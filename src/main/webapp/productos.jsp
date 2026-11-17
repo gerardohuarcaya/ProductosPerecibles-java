@@ -22,25 +22,26 @@
             %>
             <%@ include file="/WEB-INF/vistas/header.jsp" %>
 
-            <section class="seccion-productos">
-                <form action="${pageContext.request.contextPath}/ProductoServlet" method="get">
-                    <label for="buscar">Buscar producto:</label>
+            <section class="seccion-productos card border-0 shadow-sm p-3 p-md-4">
+                <form class="row g-3 align-items-end mb-3" action="${pageContext.request.contextPath}/ProductoServlet" method="get">
+                    <label class="form-label col-12 col-md-auto mb-0" for="buscar">Buscar producto:</label>
                     <input
+                        class="form-control flex-grow-1 col"
                         id="buscar"
                         name="buscar"
                         value="<%= buscar == null ? "" : buscar %>"
                         placeholder="Código, nombre o categoría">
-                    <button type="submit">Buscar</button>
+                    <button class="btn btn-primary col-12 col-md-auto" type="submit"><i class="bi bi-search me-1"></i>Buscar</button>
                 </form>
 
                 <a
                     href="${pageContext.request.contextPath}/ProductoServlet?accion=nuevo"
-                    class="btn-registrar">
+                    class="btn btn-success btn-registrar text-decoration-none">
                     + Registrar producto
                 </a>
 
-                <div class="tabla-contenedor">
-                    <table>
+                <div class="tabla-contenedor table-responsive">
+                    <table class="table table-hover align-middle mb-0">
                         <thead>
                             <tr>
                                 <th>Código</th>
