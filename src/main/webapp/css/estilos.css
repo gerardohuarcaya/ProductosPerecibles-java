@@ -489,3 +489,76 @@ td a:hover { color: #075b66; text-decoration: underline; }
     .encabezado-imagen.img-fluid { object-position: center; }
     .encabezado-logo { width: 44px; height: 44px; flex-basis: 44px; }
 }
+
+
+/* -------------------- AJUSTES DE MENÚ Y FOOTER -------------------- */
+/* El botón está disponible en escritorio y en dispositivos móviles. */
+.menu-cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 42px;
+    margin-bottom: 12px;
+}
+.menu-toggle {
+    display: inline-flex !important;
+    flex: 0 0 38px;
+    cursor: pointer;
+}
+.menu-toggle:hover {
+    color: #fff;
+    background: rgba(103, 232, 249, .22);
+    border-color: rgba(165, 243, 252, .55);
+}
+.menu-toggle:focus-visible {
+    outline: 3px solid #67e8f9;
+    outline-offset: 3px;
+}
+
+/* Escritorio: el menú se contrae a una barra de iconos y vuelve a expandirse. */
+@media (min-width: 761px) {
+    .contenedor .menu-lateral {
+        transition: width .22s ease, flex-basis .22s ease, padding .22s ease;
+    }
+    .contenedor.menu-colapsado .menu-lateral {
+        width: 78px;
+        flex-basis: 78px;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .contenedor.menu-colapsado .menu-seccion,
+    .contenedor.menu-colapsado .menu-enlace span,
+    .contenedor.menu-colapsado .menu-estado span:not(.estado-punto),
+    .contenedor.menu-colapsado .cerrar-sesion span {
+        display: none;
+    }
+    .contenedor.menu-colapsado .menu-lateral nav .menu-enlace,
+    .contenedor.menu-colapsado .menu-lateral .cerrar-sesion {
+        justify-content: center;
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+    .contenedor.menu-colapsado .menu-enlace i,
+    .contenedor.menu-colapsado .cerrar-sesion i {
+        width: auto;
+        margin: 0;
+    }
+}
+
+/* Footer: selector específico y fondo forzado para evitar sobrescrituras externas. */
+footer.pie-pagina {
+    color: #d8e5ed !important;
+    background: linear-gradient(125deg, #111827 0%, #172554 58%, #164e63 100%) !important;
+}
+footer.pie-pagina .pie-columna h2 { color: #ffffff !important; }
+footer.pie-pagina .pie-columna > a { color: #d5e4ee !important; }
+footer.pie-pagina .pie-columna > a:hover { color: #67e8f9 !important; }
+footer.pie-pagina .pie-identidad > p,
+footer.pie-pagina .pie-nota,
+footer.pie-pagina .pie-base { color: #b8c9d8 !important; }
+
+@media (max-width: 760px) {
+    .menu-cabecera { margin-bottom: 0; }
+    .menu-lateral nav.menu-navegacion { display: none; }
+    .menu-lateral nav.menu-navegacion.menu-visible { display: grid; }
+}
