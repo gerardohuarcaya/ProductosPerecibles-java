@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesión - Productos Perecibles</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilos.css">
+    <%@ include file="/WEB-INF/vistas/recursos.jsp" %>
 </head>
 <body>
     <main class="login-container">
@@ -61,6 +61,6 @@
         </section>
     </main>
 
-    <script src="${pageContext.request.contextPath}/js/script.js" defer></script>
+    <%@ include file="/WEB-INF/vistas/scripts.jsp" %>
 </body>
 </html>
