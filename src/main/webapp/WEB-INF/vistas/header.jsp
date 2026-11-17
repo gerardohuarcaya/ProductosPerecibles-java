@@ -1,11 +1,22 @@
+<%
+    String titulo = (String) request.getAttribute("tituloPagina");
+    String imagenEncabezado = "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1900&q=85";
+
+    if ("Productos".equals(titulo) || "Registrar producto".equals(titulo)
+            || "Editar producto".equals(titulo) || "Detalle del producto".equals(titulo)) {
+        imagenEncabezado = "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1900&q=85";
+    } else if ("Movimientos".equals(titulo)) {
+        imagenEncabezado = "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1900&q=85";
+    } else if ("Control de vencimientos".equals(titulo)) {
+        imagenEncabezado = "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1900&q=85";
+    } else if ("Gestión de usuarios".equals(titulo)) {
+        imagenEncabezado = "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1900&q=85";
+    }
+%>
 <header class="encabezado" aria-label="Encabezado de Productos Perecibles">
     <img
-        class="encabezado-imagen img-fluid w-100 h-100"
-        src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1800&q=85"
-        srcset="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=900&q=80 900w,
-                https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1400&q=85 1400w,
-                https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=2000&q=85 2000w"
-        sizes="100vw"
+        class="encabezado-imagen"
+        src="<%= imagenEncabezado %>"
         alt=""
         aria-hidden="true"
         fetchpriority="high"
@@ -14,22 +25,18 @@
 
     <div class="encabezado-contenido">
         <div class="encabezado-marca">
-            <img
-                class="encabezado-logo img-fluid"
-                src="${pageContext.request.contextPath}/img/marca-oceano.svg"
-                alt="Productos Perecibles">
             <div class="encabezado-texto">
                 <span class="encabezado-etiqueta">
-                    <i class="bi bi-leaf-fill" aria-hidden="true"></i>
-                    CONTROL DE INVENTARIO
+                    <i class="bi bi-grid-1x2-fill" aria-hidden="true"></i>
+                    SISTEMA DE INVENTARIO
                 </span>
-                <h1>${tituloPagina}</h1>
-                <p>Organiza tus productos, controla las existencias y anticipa los vencimientos.</p>
+                <h1><%= titulo == null ? "Productos Perecibles" : titulo %></h1>
+                <p>Administra tus existencias y mantén el control de las fechas de vencimiento.</p>
             </div>
         </div>
         <span class="encabezado-sello">
-            <i class="bi bi-box-seam" aria-hidden="true"></i>
-            Gestión inteligente
+            <i class="bi bi-check2-circle" aria-hidden="true"></i>
+            Inventario organizado
         </span>
     </div>
 </header>
