@@ -1,13 +1,6 @@
 <footer class="pie-pagina">
     <div class="pie-contenido">
         <div class="pie-columna pie-identidad">
-            <div class="pie-marca">
-                <img class="img-fluid" src="${pageContext.request.contextPath}/img/marca-oceano.svg" alt="Logotipo Productos Perecibles">
-                <div>
-                    <strong>Productos Perecibles</strong>
-                    <span>Gestión y control de inventario</span>
-                </div>
-            </div>
             <p>Una herramienta para organizar existencias y realizar un mejor seguimiento de las fechas de vencimiento.</p>
         </div>
 
