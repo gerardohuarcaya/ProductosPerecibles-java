@@ -1,8 +1,8 @@
-<%-- Recursos visuales compartidos: Bootstrap 5.3.3, Bootstrap Icons y estilos propios. --%>
+<%-- Recursos visuales compartidos: Bootstrap 5.3.9, Bootstrap Icons y estilos propios. --%>
 <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css"
     rel="stylesheet"
-    integrity="sha384-f/E+5h1N2M4AmoPXqd6jO7Edd7MrTU8hzhVDLWkiyAsQpq4Y4pfVyI4R1fSvRTkd"
+    integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX"
     crossorigin="anonymous">
 <link
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
