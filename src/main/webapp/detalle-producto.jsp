@@ -21,27 +21,27 @@
             %>
             <%@ include file="/WEB-INF/vistas/header.jsp" %>
 
-            <section class="detalle-producto">
+            <section class="detalle-producto card border-0 shadow-sm p-3 p-md-4">
                 <%
                     if (p != null) {
                 %>
                     <h2><%= p.getNombre() %></h2>
 
-                    <dl>
-                        <dt>Código</dt>
-                        <dd><%= p.getCodigo() %></dd>
+                    <dl class="row g-2 mb-4">
+                        <dt class="col-12 col-sm-4">Código</dt>
+                        <dd class="col-12 col-sm-8"><%= p.getCodigo() %></dd>
 
-                        <dt>Categoría</dt>
-                        <dd><%= p.getCategoria() %></dd>
+                        <dt class="col-12 col-sm-4">Categoría</dt>
+                        <dd class="col-12 col-sm-8"><%= p.getCategoria() %></dd>
 
-                        <dt>Cantidad</dt>
-                        <dd><%= p.getCantidad() %></dd>
+                        <dt class="col-12 col-sm-4">Cantidad</dt>
+                        <dd class="col-12 col-sm-8"><%= p.getCantidad() %></dd>
 
-                        <dt>Vencimiento</dt>
-                        <dd><%= p.getFechaVencimiento() %></dd>
+                        <dt class="col-12 col-sm-4">Vencimiento</dt>
+                        <dd class="col-12 col-sm-8"><%= p.getFechaVencimiento() %></dd>
                     </dl>
 
-                    <a href="${pageContext.request.contextPath}/ProductoServlet?accion=editar&id=<%= p.getIdProducto() %>">Editar</a>
+                    <a class="btn btn-primary me-2 mb-2" href="${pageContext.request.contextPath}/ProductoServlet?accion=editar&id=<%= p.getIdProducto() %>"><i class="bi bi-pencil me-1"></i>Editar</a>
                 <%
                     } else {
                 %>
@@ -50,7 +50,7 @@
                     }
                 %>
 
-                <a href="${pageContext.request.contextPath}/ProductoServlet">Volver</a>
+                <a class="btn btn-outline-secondary mb-2" href="${pageContext.request.contextPath}/ProductoServlet"><i class="bi bi-arrow-left me-1"></i>Volver</a>
             </section>
 
             <%@ include file="/WEB-INF/vistas/footer.jsp" %>
