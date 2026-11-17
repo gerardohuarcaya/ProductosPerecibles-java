@@ -15,7 +15,7 @@
 %>
 <header class="encabezado" aria-label="Encabezado de Productos Perecibles">
     <img
-        class="encabezado-imagen"
+        class="encabezado-imagen img-fluid w-100 h-100"
         src="<%= imagenEncabezado %>"
         alt=""
         aria-hidden="true"
