@@ -10,7 +10,7 @@
     <div class="encabezado-contenido">
         <div class="encabezado-marca">
             <img
-                class="encabezado-logo"
+                class="encabezado-logo img-fluid"
                 src="${pageContext.request.contextPath}/img/marca-oceano.svg"
                 alt="Productos Perecibles">
             <div class="encabezado-texto">
