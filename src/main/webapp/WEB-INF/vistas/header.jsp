@@ -1,24 +1,30 @@
-<header class="encabezado">
+<header class="encabezado" aria-label="Encabezado de Productos Perecibles">
     <img
         class="encabezado-imagen"
-        src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=2000&q=85"
-        alt="Puesto de mercado con frutas y verduras frescas"
+        src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1800&q=80"
+        alt=""
+        aria-hidden="true"
         fetchpriority="high">
     <div class="encabezado-capa" aria-hidden="true"></div>
 
     <div class="encabezado-contenido">
-        <div class="encabezado-texto">
-            <span class="encabezado-etiqueta">
-                <i class="bi bi-leaf-fill" aria-hidden="true"></i>
-                CONTROL DE INVENTARIO
-            </span>
-            <h1>${tituloPagina}</h1>
-            <p>Organiza tus productos, controla las existencias y anticipa los vencimientos.</p>
+        <div class="encabezado-marca">
+            <img
+                class="encabezado-logo"
+                src="${pageContext.request.contextPath}/img/marca-oceano.svg"
+                alt="Productos Perecibles">
+            <div class="encabezado-texto">
+                <span class="encabezado-etiqueta">
+                    <i class="bi bi-leaf-fill" aria-hidden="true"></i>
+                    CONTROL DE INVENTARIO
+                </span>
+                <h1>${tituloPagina}</h1>
+                <p>Organiza tus productos, controla las existencias y anticipa los vencimientos.</p>
+            </div>
         </div>
-
-        <div class="encabezado-sello" aria-label="Gestión de productos perecibles">
+        <span class="encabezado-sello">
             <i class="bi bi-box-seam" aria-hidden="true"></i>
-            <span>Gestión<br>inteligente</span>
-        </div>
+            Gestión inteligente
+        </span>
     </div>
 </header>
