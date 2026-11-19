@@ -562,3 +562,38 @@ footer.pie-pagina .pie-base { color: #b8c9d8 !important; }
     .menu-lateral nav.menu-navegacion { display: none; }
     .menu-lateral nav.menu-navegacion.menu-visible { display: grid; }
 }
+
+
+/* -------------------- REGISTRO DE USUARIOS -------------------- */
+.registro-box {
+    max-width: 500px;
+}
+.registro-box h2 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.registro-box .campo {
+    margin-bottom: 13px;
+}
+.registro-box .campo small {
+    display: block;
+    margin-top: -2px;
+    font-size: 11px;
+    line-height: 1.45;
+}
+.enlace-registro {
+    color: var(--color-primario);
+    font-weight: 750;
+}
+.enlace-registro:hover {
+    color: var(--color-primario-oscuro);
+    text-decoration: underline;
+}
+.nota-registro {
+    color: var(--color-texto-suave);
+    font-size: 11px;
+}
+@media (max-width: 480px) {
+    .registro-box { padding: 25px 19px; }
+}
