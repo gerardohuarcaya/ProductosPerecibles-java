@@ -19,18 +19,21 @@
 
             <%
                 String error = request.getParameter("error");
+                String registro = request.getParameter("registro");
 
-                if ("campos".equals(error)) {
+                if ("ok".equals(registro)) {
             %>
-                <div class="mensaje-error">
-                    Completa todos los campos.
+                <div class="alert alert-success py-2" role="alert">
+                    Tu cuenta se creó correctamente. Ya puedes iniciar sesión.
                 </div>
+            <%
+                } else if ("campos".equals(error)) {
+            %>
+                <div class="mensaje-error">Completa todos los campos.</div>
             <%
                 } else if ("credenciales".equals(error)) {
             %>
-                <div class="mensaje-error">
-                    Usuario o contraseña incorrectos.
-                </div>
+                <div class="mensaje-error">Usuario o contraseña incorrectos.</div>
             <%
                 }
             %>
@@ -38,26 +41,25 @@
             <form action="${pageContext.request.contextPath}/login" method="POST">
                 <div class="campo">
                     <label for="identificador">Usuario o correo electrónico</label>
-                    <input
-                        type="text"
-                        id="identificador"
-                        name="identificador"
-                        placeholder="Ingresa tu usuario o correo"
-                        required>
+                    <input class="form-control" type="text" id="identificador" name="identificador"
+                           placeholder="Ingresa tu usuario o correo" autocomplete="username" required>
                 </div>
 
                 <div class="campo">
                     <label for="contraseña">Contraseña</label>
-                    <input
-                        type="password"
-                        id="contraseña"
-                        name="contraseña"
-                        placeholder="Ingresa tu contraseña"
-                        required>
+                    <input class="form-control" type="password" id="contraseña" name="contraseña"
+                           placeholder="Ingresa tu contraseña" autocomplete="current-password" required>
                 </div>
 
-                <button type="submit">Iniciar sesión</button>
+                <button class="btn btn-primary w-100" type="submit">
+                    <i class="bi bi-box-arrow-in-right me-1"></i>Iniciar sesión
+                </button>
             </form>
+
+            <p class="text-center mt-4 mb-0">
+                ¿No tienes una cuenta?
+                <a class="enlace-registro" href="${pageContext.request.contextPath}/registro">Crear cuenta</a>
+            </p>
         </section>
     </main>
 
