@@ -24,7 +24,9 @@ public class RegistroServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession sesion = request.getSession(false);
-        if (sesion != null && sesion.getAttribute("usuario") != null) {
+        // Una sesión invitada no debe impedir que el formulario de registro se abra.
+        if (sesion != null && sesion.getAttribute("usuario") != null
+                && !SesionInvitado.esInvitado(request)) {
             response.sendRedirect(request.getContextPath() + "/DashboardServlet");
             return;
         }
