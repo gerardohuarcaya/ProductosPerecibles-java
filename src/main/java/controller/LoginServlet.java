@@ -26,6 +26,15 @@ public class LoginServlet extends HttpServlet {
 
         request.setCharacterEncoding("UTF-8");
 
+        // MODO DE PRUEBA: permite entrar sin usuario ni contraseña.
+        if ("invitado".equals(request.getParameter("modo"))) {
+            SesionInvitado.obtener(request);
+            response.sendRedirect(request.getContextPath() + "/DashboardServlet");
+            return;
+        }
+
+        // MODO NORMAL: se conserva la autenticación original para reactivarla
+        // o utilizarla cuando se quiera probar el acceso con una cuenta real.
         String identificador = request.getParameter("identificador");
         String contraseña = request.getParameter("contraseña");
 
@@ -40,8 +49,7 @@ public class LoginServlet extends HttpServlet {
         if (usuario != null) {
             HttpSession sesion = request.getSession();
             sesion.setAttribute("usuario", usuario);
-
-            // El DashboardServlet comprueba la sesión y carga los datos del panel.
+            sesion.removeAttribute("modoInvitado");
             response.sendRedirect(request.getContextPath() + "/DashboardServlet");
         } else {
             response.sendRedirect(request.getContextPath() + "/login.jsp?error=credenciales");
