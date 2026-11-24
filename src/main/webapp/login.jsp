@@ -56,6 +56,16 @@
                 </button>
             </form>
 
+            <div class="my-3 text-center">
+                <span class="text-secondary">O si solo necesitas probar el sistema</span>
+            </div>
+            <form action="${pageContext.request.contextPath}/login" method="POST">
+                <input type="hidden" name="modo" value="invitado">
+                <button class="btn btn-outline-secondary w-100" type="submit">
+                    <i class="bi bi-person-walking me-1"></i>Entrar como invitado
+                </button>
+            </form>
+
             <p class="text-center mt-4 mb-0">
                 ¿No tienes una cuenta?
                 <a class="enlace-registro" href="${pageContext.request.contextPath}/registro">Crear cuenta</a>
