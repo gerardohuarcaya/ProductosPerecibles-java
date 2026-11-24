@@ -13,6 +13,11 @@
         imagenEncabezado = "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1900&q=85";
     }
 %>
+<% if (Boolean.TRUE.equals(session.getAttribute("modoInvitado"))) { %>
+<div class="alert alert-warning mx-3 mt-3 mb-0" role="status">
+    <strong>Modo invitado / demostración:</strong> estás usando datos de ejemplo guardados temporalmente en esta sesión. No se consulta ni modifica la base de datos en la nube.
+</div>
+<% } %>
 <header class="encabezado" aria-label="Encabezado de Productos Perecibles">
     <img
         class="encabezado-imagen img-fluid w-100 h-100"
