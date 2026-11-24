@@ -28,6 +28,10 @@ public class LoginServlet extends HttpServlet {
 
         // MODO DE PRUEBA: permite entrar sin usuario ni contraseña.
         if ("invitado".equals(request.getParameter("modo"))) {
+            HttpSession sesionAnterior = request.getSession(false);
+            if (sesionAnterior != null) {
+                sesionAnterior.invalidate();
+            }
             SesionInvitado.obtener(request);
             response.sendRedirect(request.getContextPath() + "/DashboardServlet");
             return;
