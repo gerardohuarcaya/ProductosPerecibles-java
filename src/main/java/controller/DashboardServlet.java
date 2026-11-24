@@ -11,21 +11,19 @@ import model.Dashboard;
 
 @WebServlet("/DashboardServlet")
 public class DashboardServlet extends HttpServlet {
-
     @Override
-    protected void doGet(HttpServletRequest request,
-                          HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        // Si no existe una sesión autenticada, se crea una sesión temporal invitada.
-        SesionInvitado.obtener(request);
-
-        System.out.println("========== DASHBOARD SERVLET EJECUTADO ==========");
-
-        DashboardDAO dashboardDAO = new DashboardDAO();
-        Dashboard dashboard = dashboardDAO.obtenerResumen();
+        Dashboard dashboard;
+        if (SesionInvitado.esInvitado(request) || request.getSession(false) == null
+                || request.getSession(false).getAttribute("usuario") == null) {
+            SesionInvitado.obtener(request);
+            dashboard = SesionInvitado.obtenerDatosDemo(request).obtenerDashboard();
+            request.setAttribute("modoDemo", Boolean.TRUE);
+        } else {
+            dashboard = new DashboardDAO().obtenerResumen();
+        }
         request.setAttribute("dashboard", dashboard);
-
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 }
