@@ -57,7 +57,7 @@
             </form>
 
             <div class="my-3 text-center">
-                <span class="text-secondary">O si solo necesitas probar el sistema</span>
+                <span class="text-secondary">Accede sin cuenta y prueba la interfaz con datos de demostración. No requiere conexión a MySQL.</span>
             </div>
             <form action="${pageContext.request.contextPath}/login" method="POST">
                 <input type="hidden" name="modo" value="invitado">
